@@ -18,9 +18,10 @@ export async function POST(request: Request) {
         if (!user) {
             return NextResponse.json({ error: "Invalid username or password" }, { status: 401 } );
         }
-        if(!user || !(await bcrypt.compare(password,user.password))){
+       if(!user || !(await bcrypt.compare(password, user.password))) {
             return NextResponse.json({ error: "Invalid username or password" }, { status: 401 } );
         }
+
         const token = jwt.sign(
             { id: user.id, username: user.username },
             JWT_SECRET,
