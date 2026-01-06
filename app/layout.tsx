@@ -3,6 +3,7 @@ import { Judson, Stint_Ultra_Expanded } from "next/font/google";
 import { CartProvider } from "@/contexts/CartContext";
 import { WishlistProvider } from "@/contexts/WishlistContext";
 import "./globals.css";
+import { Suspense } from "react";
 
 const judson = Judson({
   weight: ["400", "700"],
@@ -29,15 +30,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${judson.variable} ${stintUltra.variable} antialiased`}
-      >
-        <CartProvider>
-          <WishlistProvider>
-            {children}
-          </WishlistProvider>
-        </CartProvider>
+   <html lang="en">
+      <body className={`${judson.variable} ${stintUltra.variable} antialiased`}>
+        <Suspense fallback={null}>
+          <CartProvider>
+            <WishlistProvider>
+              {children}
+            </WishlistProvider>
+          </CartProvider>
+        </Suspense>
       </body>
     </html>
   );
