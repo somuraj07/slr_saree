@@ -31,7 +31,7 @@ export default function FeaturedProducts() {
       y: 0,
       transition: {
         duration: 0.6,
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
       },
     },
