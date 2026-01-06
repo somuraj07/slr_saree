@@ -1,2 +1,50 @@
 @import "tailwindcss";
 
+/* Custom gradient animations */
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #d4af37, #ffed9a);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #ffed9a, #d4af37);
+}
+
+/* Font classes */
+.font-title {
+  font-family: var(--font-judson), serif;
+}
+
+.font-description {
+  font-family: var(--font-stint-ultra), sans-serif;
+  letter-spacing: 0.5px;
+}
+
